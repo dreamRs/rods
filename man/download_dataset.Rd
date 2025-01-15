@@ -51,7 +51,17 @@ eco2mix <- download_dataset(
   server = "https://odre.opendatasoft.com",
   dataset = "eco2mix-national-tr",
   select = "date_heure,consommation,taux_co2",
-  where = "minute(date_heure) = 0 and month(date_heure) = 9 and year(date_heure) = 2024"
+  where = "minute(date_heure) = 0 and month(date_heure) = 9 and year(date_heure) = 2024",
+  order_by = "date_heure"
+)
+
+# or equivalent:
+eco2mix <- download_dataset(
+  server = "https://odre.opendatasoft.com",
+  dataset = "eco2mix-national-tr",
+  select = "date_heure,consommation,taux_co2",
+  where = "minute(date_heure) = 0 and date_heure >= '2024-09-01' and date_heure < '2024-10-01'",
+  order_by = "date_heure"
 )
 
 }

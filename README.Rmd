@@ -1,0 +1,46 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# rods
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+ Download datasets from [OpenDataSoft](https://www.opendatasoft.com/en/) platforms.
+
+## Installation
+
+You can install the development version of rods from [GitHub](https://github.com/dreamRs/rods) with:
+
+``` r
+# install.packages("pak")
+pak::pak("dreamRs/rods")
+```
+
+## Example
+
+Download a dataset from [ODRé](https://odre.opendatasoft.com) :
+
+```{r example}
+library(rods)
+download_dataset(
+  server = "https://odre.opendatasoft.com",
+  dataset = "eco2mix-national-tr",
+  select = "date_heure,consommation,taux_co2",
+  where = "minute(date_heure) = 0 and month(date_heure) = 9 and year(date_heure) = 2024",
+  order_by = "date_heure"
+)
+```
+
