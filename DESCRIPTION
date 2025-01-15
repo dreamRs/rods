@@ -1,0 +1,15 @@
+Package: rods
+Title: Dowload Open Data from 'OpenDataSoft'
+Version: 0.0.0.9000
+Authors@R: c(
+  person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
+  person("Fanny", "Meyer", role = "aut"))
+Description: Download datasets from 'OpenDataSoft' platforms.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    data.table,
+    httr2,
+    rlang
