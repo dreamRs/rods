@@ -16,6 +16,8 @@ download_dataset(
 \arguments{
 \item{server}{The URL of the OpenDataSoft portal.}
 
+\item{dataset}{Name of the dataset to download.}
+
 \item{...}{Arguments passed to \code{\link[httr2:req_url]{httr2::req_url_query()}}.}
 
 \item{proxy}{Use or not a proxy server. If \code{TRUE},
@@ -35,8 +37,6 @@ Use \code{\link[httr2:with_verbosity]{with_verbosity()}} to control the verbosit
 you can't affect directly.}
 
 \item{wrapper}{Function to wrap output data into, default is to return a \code{data.table}.}
-
-\item{api}{Path for the API to use.}
 }
 \value{
 Result of the request.

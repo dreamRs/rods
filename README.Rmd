@@ -18,13 +18,13 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
- Download datasets from [OpenDataSoft](https://www.opendatasoft.com/en/) platforms.
+Download datasets from [OpenDataSoft](https://www.opendatasoft.com/en/) platforms.
 
 ## Installation
 
 You can install the development version of rods from [GitHub](https://github.com/dreamRs/rods) with:
 
-``` r
+```r
 # install.packages("pak")
 pak::pak("dreamRs/rods")
 ```
@@ -35,11 +35,18 @@ Download a dataset from [ODRé](https://odre.opendatasoft.com) :
 
 ```{r example}
 library(rods)
+# Donwload entire dataset
+download_dataset(
+  server = "https://odre.opendatasoft.com",
+  dataset = "eco2mix-national-tr"
+)
+
+# Advanced request to select and filter data
 download_dataset(
   server = "https://odre.opendatasoft.com",
   dataset = "eco2mix-national-tr",
   select = "date_heure,consommation,taux_co2",
-  where = "minute(date_heure) = 0 and month(date_heure) = 9 and year(date_heure) = 2024",
+  where = "minute(date_heure) = 0 and date_heure >= '2024-09-01' and date_heure < '2024-10-01'",
   order_by = "date_heure"
 )
 ```
