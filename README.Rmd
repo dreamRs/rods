@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # rods
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/dreamRs/rods/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dreamRs/rods/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Download datasets from [OpenDataSoft](https://www.opendatasoft.com/en/) platforms.
