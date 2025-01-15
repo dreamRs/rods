@@ -1,5 +1,5 @@
 
-#' Donwload records from an OpenDataSoft portal
+#' Donwload dataset from an OpenDataSoft portal
 #'
 #' @param server The URL of the OpenDataSoft portal.
 #' @param api Path for the API to use.
@@ -18,13 +18,23 @@
 #' @importFrom rlang is_list %||%
 #'
 #' @examples
-download_records <- function(server,
-                             api = "/api/records/1.0/download/",
-                             proxy = TRUE,
+#' \dontrun{
+#'
+#' eco2mix <- download_dataset(
+#'   server = "https://odre.opendatasoft.com",
+#'   dataset = "eco2mix-national-tr",
+#'   select = "date_heure,consommation,taux_co2",
+#'   where = "minute(date_heure) = 0 and month(date_heure) = 9 and year(date_heure) = 2024"
+#' )
+#'
+#' }
+download_dataset <- function(server,
+                             dataset,
                              ...,
+                             proxy = TRUE,
                              verbosity = NULL,
                              wrapper = data.table::as.data.table) {
-  req <- request(paste0(server, api))
+  req <- request(paste0(server, sprintf("/api/explore/v2.1/catalog/datasets/%s/exports/csv", dataset)))
   req <- req_user_agent(
     req = req,
     string = "Request made by R package rods (https://github.com/dreamRs/rods)"
